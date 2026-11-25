@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b0a">
+  <title>MEGA ENGLISH — O‘quv markazi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="logo" href="#">MEGA<span>.</span></a>
+    <p class="side-label">ASOSIY MENYU</p>
+    <button class="nav active" data-target="dashboard">▦ <span>Dashboard</span></button>
+    <button class="nav" data-target="students">♙ <span>O‘quvchilar</span></button>
+    <button class="nav" data-target="payments">▤ <span>Oylik to‘lovlar</span></button>
+    <div class="sidebar-bottom">
+      <div class="profile">
+        <div class="avatar">A</div>
+        <div><b>Administrator</b><small>MEGA ENGLISH</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main" id="dashboard">
+    <header class="topbar">
+      <div><p class="muted">Xush kelibsiz, administrator!</p><h1>Boshqaruv paneli</h1></div>
+      <div class="today" id="today"></div>
+    </header>
+
+    <section class="stats">
+      <article class="stat-card"><span>JAMI O‘QUVCHILAR</span><h2 id="totalStudents">0</h2><p>Ro‘yxatdagi o‘quvchilar</p></article>
+      <article class="stat-card"><span>TO‘LANGAN</span><h2 id="paidCount">0</h2><p class="green">To‘lov qilganlar</p></article>
+      <article class="stat-card"><span>QARZDORLAR</span><h2 id="unpaidCount">0</h2><p class="red">To‘lov kutilmoqda</p></article>
+      <article class="stat-card"><span>JORIY OY TUSHUMI</span><h2 class="income" id="totalIncome">0</h2><p>So‘m hisobida</p></article>
+    </section>
+
+    <section class="panel" id="students">
+      <div class="section-heading">
+        <div><h2>Yangi o‘quvchi qo‘shish</h2><p>O‘quvchi ma’lumotlarini kiriting</p></div>
+        <span class="tag">NEW STUDENT +</span>
+      </div>
+      <form id="studentForm">
+        <div class="form-grid">
+          <label class="field">Ismi<input id="firstName" placeholder="Masalan: Aziz" required maxlength="50"></label>
+          <label class="field">Familiyasi<input id="lastName" placeholder="Masalan: Karimov" required maxlength="50"></label>
+          <label class="field">Telefon raqami<input id="phone" type="tel" placeholder="+998 90 123 45 67" required maxlength="25"></label>
+          <label class="field">Qo‘shimcha telefon<input id="phone2" type="tel" placeholder="+998 91 123 45 67" maxlength="25"></label>
+          <label class="field">Oylik to‘lov (so‘m)<input id="fee" type="number" placeholder="500000" min="1" required></label>
+          <label class="field">Guruh
+            <select id="group">
+              <option>Beginner</option><option>Elementary</option><option>Pre-Intermediate</option><option>Intermediate</option><option>IELTS</option>
+            </select>
+          </label>
+        </div>
+        <button class="primary-btn" type="submit">+ O‘quvchini ro‘yxatga qo‘shish</button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel" id="payments">
+      <div class="section-heading">
+        <div><h2>Oylik to‘lovlar</h2><p>To‘lov holatini kuzatib boring</p></div>
+        <span class="tag">PAYMENT CONTROL</span>
+      </div>
+      <div class="payment-summary">
+        <div><small>Tanlangan oy</small><h3 id="currentMonth"></h3></div>
+        <div class="green-text">To‘lovlar nazorati</div>
+      </div>
+      <div class="table-tools">
+        <input id="search" type="search" placeholder="⌕ Ism yoki telefon orqali qidirish...">
+        <select id="filter"><option value="all">Barcha o‘quvchilar</option><option value="paid">To‘langan</option><option value="unpaid">To‘lanmagan</option></select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>O‘QUVCHI</th><th>TELEFONLAR</th><th>GURUH</th><th>OYLIK TO‘LOV</th><th>HOLATI</th><th>AMAL</th></tr></thead>
+          <tbody id="studentList"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="empty">Hozircha o‘quvchilar mavjud emas.</p>
+    </section>
+    <footer>© 2026 MEGA ENGLISH. Barcha huquqlar himoyalangan.</footer>
+  </main>
+  <script src="./index.js"></script>
+</body>
+</html>
